@@ -397,7 +397,10 @@ begin
   ACanvas.Font := Font;
   ACanvas.Brush.Style := bsSolid;
   ACanvas.Brush.Color := Color;
+  // VSSD: Sorry, we need a flat background
+  {$IFDEF __NEVER__}
   DrawThemedBackground(Self, ACanvas, ARect);
+  {$ENDIF}
   if csDesigning in ComponentState then
   begin
     ACanvas.Pen.Style := psDot;
@@ -506,10 +509,17 @@ begin
   end
   else
   begin
+    // VSSD: Sorry, we need a flat background
+    {$IFDEF __NEVER__}
     {$IFDEF JVCLStylesEnabled}
     if StyleServices.Enabled then
       DrawThemedBackground(Self, Canvas, ClientRect, Color, ParentBackground);
     {$ENDIF JVCLStylesEnabled}
+	{$ELSE}
+    Canvas.Brush.Style := bsSolid;
+    Canvas.Brush.Color := Color;
+    Canvas.FillRect(ClientRect);
+	{$ENDIF}
     Result := True;
   end;
 end;
