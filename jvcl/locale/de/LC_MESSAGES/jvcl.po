@@ -47,7 +47,7 @@ msgstr ""
 #: JvJVCLAboutForm.dfm:765 JvLoginForm.dfm:124 JvPatchForm.dfm:101
 #: JvSLDMappingEditorDialog.dfm:276
 msgid "OK"
-msgstr "Ok"
+msgstr "OK"
 
 #  JvChPswdForm..CancelBtn..Caption
 #  JvQueryParamsDialog..CancelBtn..Caption
@@ -218,7 +218,7 @@ msgstr "&Farbe:"
 #: JvFullColorCircleForm.dfm:79
 #, fuzzy
 msgid "A&xis Settings:"
-msgstr "Achsen Einstellungen:"
+msgstr "A&chsen-Einstellungen:"
 
 #  JvHLEditorParamsForm..Pages..tsColors..lbElements....Items.Strings
 #  JvHLEditorParamsForm..Pages..tsColors..lbElements....Items.Strings
@@ -254,7 +254,7 @@ msgstr "&Blau:"
 #: JvFullColorCircleForm.dfm:495
 #, fuzzy
 msgid "Co&mmon Settings:"
-msgstr "allgemeine Einstellungen"
+msgstr "Allgemeine Einstellungen"
 
 #  === JvAppStorageSelectList.pas ===============================================
 #  Programmer's name for it: RsLoadSettings
@@ -262,7 +262,7 @@ msgstr "allgemeine Einstellungen"
 #: JvFullColorCircleForm.dfm:504
 #, fuzzy
 msgid "&Axis Settings:"
-msgstr "Einstellungen laden"
+msgstr "&Achsen-Einstellungen:"
 
 #  JvChPswdForm..CancelBtn..Caption
 #  JvQueryParamsDialog..CancelBtn..Caption
@@ -312,7 +312,7 @@ msgstr "&Anwenden"
 #. JvFullColorFrm..Caption
 #: JvFullColorForm.dfm:7
 msgid "Color Spaces Editor, Choose your color"
-msgstr "Farbraum-Editor, Wählen Sie eine Farbe"
+msgstr "Farbraum-Editor, wählen Sie eine Farbe"
 
 #. JvFullColorFrm..LabelColorSpace..Caption
 #: JvFullColorForm.dfm:27
@@ -324,7 +324,7 @@ msgstr "&Aktueller Farbraum:"
 #. JvFullColorFrm..GroupBoxSettings..Caption
 #: JvFullColorForm.dfm:69
 msgid " Settings ... "
-msgstr " Einstellungen  ... "
+msgstr " Einstellungen ... "
 
 #. JvFullColorFrm..GroupBoxSettings..LabelPredefined..Caption
 #: JvFullColorForm.dfm:101
@@ -379,7 +379,7 @@ msgstr "Letzte Seite"
 #. JvgPrintPreview..Panel2..ToolBar1..tbPrinterSetup..Hint
 #: JvgQPrintPreviewForm.dfm:125
 msgid "Printer setup"
-msgstr "Druckersetup"
+msgstr "Drucker-Einrichtung"
 
 #. JvgPrintPreview..Panel2..ToolBar1..tbPrintRange..Hint
 #: JvgQPrintPreviewForm.dfm:136
@@ -415,12 +415,12 @@ msgstr "Doppelseitig drucken"
 #. JvgPrintPreview..OpenDialog..Filter
 #: JvgQPrintPreviewForm.dfm:803
 msgid "Quick Report Files|*.qrp"
-msgstr "Quick Report Dateien|*.qrp"
+msgstr "Quick-Report-Dateien|*.qrp"
 
 #. JvgPrintSetup..Caption
 #: JvgQPrintSetupForm.dfm:6
 msgid "Print Setup"
-msgstr "Drucker Setup"
+msgstr "Drucker-Einrichtung"
 
 #. JvgPrintSetup..rgOrientation..Caption
 #: JvgQPrintSetupForm.dfm:24
@@ -476,7 +476,7 @@ msgstr "Vollansicht"
 #. JvGridPreviewForm..Panel1..Header..Text
 #: JvGridPreviewForm.dfm:147
 msgid "Header"
-msgstr "Header"
+msgstr "Kopf"
 
 #  JvGridPreviewForm..Panel1..Headers....Items.Strings
 #  JvGridPreviewForm..Panel1..Headers....Items.Strings
@@ -501,13 +501,13 @@ msgstr "Ränder"
 #. JvGridPreviewForm..Panel1..cklive..Caption
 #: JvGridPreviewForm.dfm:233
 msgid "Live"
-msgstr "Leben"
+msgstr "Live"
 
 #  JvGridPreviewForm..OpenPictureDialog1..Filter
 #. JvGridPreviewForm..OpenPictureDialog1..Filter
 #: JvGridPreviewForm.dfm:259
 msgid "Bitmap Files|*.bmp"
-msgstr "Bitmap Datei|*.bmp"
+msgstr "Bitmap-Datei|*.bmp"
 
 #  JvHLEditorParamsForm..Caption
 #  === JvHLEditorPropertyForm.pas =============================================
@@ -517,7 +517,7 @@ msgstr "Bitmap Datei|*.bmp"
 #. Programmer's name for it: RsHLEdPropDlg_Caption
 #: JvHLEditorPropertyForm.dfm:6 JvResources.pas:1117
 msgid "Editor Properties"
-msgstr "Editoreigenschaften"
+msgstr "Editor-Eigenschaften"
 
 #  JvHLEditorParamsForm..Pages..tsEditor..Caption
 #  Programmer's name for it: RsHLEdPropDlg_tsEditor
@@ -553,7 +553,7 @@ msgstr "&Tabstops:"
 #. Programmer's name for it: RsHLEdPropDlg_cbKeyboardLayoutDefault
 #: JvHLEditorPropertyForm.dfm:54 JvResources.pas:1121
 msgid "Default keymapping"
-msgstr "Default-Tastaturbelegung"
+msgstr "Standard-Tastaturbelegung"
 
 #  JvHLEditorParamsForm..Pages..tsEditor..gbEditor..Caption
 #  Programmer's name for it: RsHLEdPropDlg_gbEditor
@@ -613,7 +613,7 @@ msgstr "&Automatischer Zeileneinzug"
 #. Programmer's name for it: RsHLEdPropDlg_cbSmartTab
 #: JvHLEditorPropertyForm.dfm:117 JvResources.pas:1124
 msgid "S&mart tab"
-msgstr "Automatischer &Tabs"
+msgstr "Automatische &Tabs"
 
 #  JvHLEditorParamsForm..Pages..tsEditor..gbEditor..cbBackspaceUnindents..Caption
 #  Programmer's name for it: RsHLEdPropDlg_cbBackspaceUnindents
@@ -648,7 +648,7 @@ msgstr "Cursor hinter &EOF"
 #: JvHLEditorPropertyForm.dfm:156 JvResources.pas:1128
 #, fuzzy
 msgid "Cursor beyond end of &line"
-msgstr "Cursor hinter &EOF"
+msgstr "Cursor hinter &EOL"
 
 #  JvHLEditorParamsForm..Pages..tsColors..Caption
 #  Programmer's name for it: RsHLEdPropDlg_tsColors
@@ -664,7 +664,7 @@ msgstr "Farben"
 #. Programmer's name for it: RsHLEdPropDlg_lblColorSpeedSettingsFor
 #: JvHLEditorPropertyForm.dfm:179 JvResources.pas:1134
 msgid "Color SpeedSettings for"
-msgstr "Farb-Schnelleinstellungen"
+msgstr "Farb-Schnelleinstellungen für"
 
 #  JvHLEditorParamsForm..Pages..tsColors..lblElement..Caption
 #  Programmer's name for it: RsHLEdPropDlg_lblElement
@@ -686,21 +686,21 @@ msgstr "&Farbe:"
 #. JvHLEditorParamsForm..Pages..tsColors..Label6..Caption
 #: JvHLEditorPropertyForm.dfm:200
 msgid "JvHLEditorPreview will be created here in run-time"
-msgstr "JvHLEditorPreview will be created here in run-time"
+msgstr ""
 
 #  JvHLEditorParamsForm..Pages..tsColors..cbColorSettings....Items.Strings
 #  JvHLEditorParamsForm..Pages..tsColors..cbColorSettings....Items.Strings
 #. JvHLEditorParamsForm..Pages..tsColors..cbColorSettings....Items.Strings
 #: JvHLEditorPropertyForm.dfm:213
 msgid "Default"
-msgstr "Default"
+msgstr "Standard"
 
 #  JvHLEditorParamsForm..Pages..tsColors..lbElements....Items.Strings
 #  JvHLEditorParamsForm..Pages..tsColors..lbElements....Items.Strings
 #. JvHLEditorParamsForm..Pages..tsColors..lbElements....Items.Strings
 #: JvHLEditorPropertyForm.dfm:237
 msgid "Whitespace"
-msgstr "Whitespace"
+msgstr "Leerzeichen"
 
 #  JvHLEditorParamsForm..Pages..tsColors..lbElements....Items.Strings
 #  JvHLEditorParamsForm..Pages..tsColors..lbElements....Items.Strings
@@ -749,7 +749,7 @@ msgstr "Zahl"
 #. JvHLEditorParamsForm..Pages..tsColors..lbElements....Items.Strings
 #: JvHLEditorPropertyForm.dfm:244
 msgid "Preprocessor"
-msgstr "Preprozessor"
+msgstr "Präprozessor"
 
 #  JvHLEditorParamsForm..Pages..tsColors..lbElements....Items.Strings
 #  Programmer's name for it: RsEInterpreter303
@@ -859,21 +859,21 @@ msgstr "Über JEDI-VCL"
 #. JvJVCLAboutForm..MainPanel..lblVisitJedi..Caption
 #: JvJVCLAboutForm.dfm:80
 msgid "Visit JEDI-VCL on the Web:"
-msgstr "JEDI-VCL im Web besuchen"
+msgstr "JEDI-VCL im Web besuchen:"
 
 #  JvJVCLAboutForm..MainPanel..lblMailingList..Caption
 #  JvJVCLAboutForm..MainPanel..lblMailingList..Caption
 #. JvJVCLAboutForm..MainPanel..lblMailingList..Caption
 #: JvJVCLAboutForm.dfm:93
 msgid "JEDI-VCL Support Mailing List:"
-msgstr "JEDI-VCL Support Mailing Liste:"
+msgstr "JEDI-VCL Support-Mailing-Liste:"
 
 #  JvJVCLAboutForm..MainPanel..lblNewsgroup..Caption
 #  JvJVCLAboutForm..MainPanel..lblNewsgroup..Caption
 #. JvJVCLAboutForm..MainPanel..lblNewsgroup..Caption
 #: JvJVCLAboutForm.dfm:100
 msgid "JEDI-VCL Support Newsgroup:"
-msgstr "JEDI-VCL Support Newsgroup:"
+msgstr "JEDI-VCL Support-Newsgroup:"
 
 #  JvJVCLAboutForm..MainPanel..lblCopyRight..Caption
 #  JvJVCLAboutForm..MainPanel..lblCopyRight..Caption
@@ -887,7 +887,7 @@ msgstr "Copyright (c) Project JEDI"
 #. JvJVCLAboutForm..MainPanel..lblRights..Caption
 #: JvJVCLAboutForm.dfm:186
 msgid "All rights reserved."
-msgstr "All rights reserved."
+msgstr "Alle Rechte vorbehalten."
 
 #  JvJVCLAboutForm..MainPanel..lblBugs..Caption
 #  JvJVCLAboutForm..MainPanel..lblBugs..Caption
@@ -919,7 +919,7 @@ msgstr "JVCL Hilfe setzen"
 #. JvJVCLAboutForm..MainPanel..Label4..Caption
 #: JvJVCLAboutForm.dfm:321
 msgid "Memory Available to Windows:"
-msgstr "Verfügbarer Windowsspeicher:"
+msgstr "Verfügbarer Windows-Arbeitsspeicher:"
 
 #  JvJVCLAboutForm..OpenDialog1..Filter
 #  JvJVCLAboutForm..OpenDialog1..Filter
@@ -992,7 +992,7 @@ msgstr "Drucken"
 #. FoLog..SaveDialog1..Filter
 #: JvLogForm.dfm:245
 msgid "CSV File (*.csv)|*.csv|Binary File (*.dat)|*.dat"
-msgstr "CSV Datei (*.csv)|*.csv|Binärdatei (*.dat)|*.dat"
+msgstr "CSV-Datei (*.csv)|*.csv|Binärdatei (*.dat)|*.dat"
 
 #  PainterEffectsForm..Caption
 #  PainterEffectsForm..Caption
@@ -1006,7 +1006,7 @@ msgstr "Painter Effekte"
 #. PainterQBForm..Panel1..QBList....Items.Strings
 #: JvPainterQBForm.dfm:100
 msgid "Inner"
-msgstr "Inner"
+msgstr "Innen"
 
 #  PainterQBForm..Panel1..QBList....Items.Strings
 #  PainterQBForm..Panel1..QBList....Items.Strings
@@ -1015,7 +1015,7 @@ msgstr "Inner"
 #. PainterQBForm..Panel1..QBList....Items.Strings
 #: JvPainterQBForm.dfm:101
 msgid "Outer"
-msgstr "Outer"
+msgstr "Außen"
 
 #  PainterQBForm..presetspop..AddBackdrop1..Caption
 #  PainterQBForm..presetspop..AddBackdrop1..Caption
@@ -1051,7 +1051,7 @@ msgstr "Hintergrund aktulisieren"
 #. JvHTMLParserForm..Caption
 #: JvParserForm.dfm:7
 msgid "Parser - Edit "
-msgstr "Parser Editieren "
+msgstr "Parser - Editieren "
 
 #  FormParsers..GroupBox1..Caption
 #  FormParsers..GroupBox1..Caption
@@ -1081,7 +1081,7 @@ msgstr "Start-Tag"
 #. JvHTMLParserForm..GroupBox1..Label3..Caption
 #: JvParserForm.dfm:70
 msgid "End Tag"
-msgstr "End-Tag"
+msgstr "Ende-Tag"
 
 #  FormParsers..GroupBox1..Label4..Hint
 #  FormParsers..GroupBox1..Label4..Hint
@@ -1119,9 +1119,6 @@ msgid ""
 "you want the component to send\n"
 "when he has found this item"
 msgstr ""
-"hier das keyword angeben\n"
-"welches die Komponente senden soll\n"
-"wenn es gefunden werden soll"
 
 #  FormParsers..GroupBox1..Edit2..Hint
 #  FormParsers..GroupBox1..Edit2..Hint
@@ -1209,7 +1206,7 @@ msgstr ""
 #. JvHTMLParserForm..btnAdd..Hint
 #: JvParserForm.dfm:151
 msgid "Add an item to the list"
-msgstr "Element zur liste hinzufügen"
+msgstr "Element zur Liste hinzufügen"
 
 #  FormParsers..AddBtn..Caption
 #  JvSpellerForm..ButtonPanel..BtnAdd..Caption
@@ -1283,7 +1280,7 @@ msgstr "Patcher Editor"
 #: JvPatchForm.dfm:31
 #, fuzzy
 msgid "&Source:"
-msgstr "&Quelle"
+msgstr "&Quelle:"
 
 #  Programmer's name for it: RsDualListDestCaption
 #  Programmer's name for it: RsDualListDestCaption
@@ -1291,7 +1288,7 @@ msgstr "&Quelle"
 #: JvPatchForm.dfm:39
 #, fuzzy
 msgid "&Destination:"
-msgstr "&Ziel"
+msgstr "&Ziel:"
 
 #  Programmer's name for it: RsPasswordLabel
 #. PatchFrm..GroupBox1..Label3..Caption
@@ -1313,14 +1310,14 @@ msgstr "&Leeren"
 #. ProfReport..Caption
 #: JvProfilerForm.dfm:8
 msgid "Profiler Report"
-msgstr "Profilerbericht"
+msgstr "Profiler-Bericht"
 
 #  ProfReport..Panel1..SaveBtn..Hint
 #  ProfReport..Panel1..SaveBtn..Hint
 #. ProfReport..Panel1..SaveBtn..Hint
 #: JvProfilerForm.dfm:59
 msgid "Save report to a file (compatible with Excel)"
-msgstr "Bereich als Datei speichern (kompatibel mit Excel)"
+msgstr "Bericht als Datei speichern (kompatibel mit Excel)"
 
 #  ProfReport..Panel1..SaveBtn..Caption
 #  fmeJvSegmentedLEDDisplayMapper..alCharMapEditor..aiFileSave..Caption
@@ -1342,7 +1339,7 @@ msgstr "&Speichern..."
 #. ProfReport..Panel1..Panel2..OKBtn..Hint
 #: JvProfilerForm.dfm:78
 msgid "Close report window"
-msgstr "Bereich-Fenster schließen"
+msgstr "Berichts-Fenster schließen"
 
 #  ProfReport..Panel1..Panel2..OKBtn..Caption
 #  fmeJvSegmentedLEDDisplayMapper..alCharMapEditor..aiFileClose..Caption
@@ -8870,7 +8867,7 @@ msgstr "Einfügen"
 #. Programmer's name for it: RSPropertyStoreEditorListButtonUp
 #: JvResources.pas:1750
 msgid "&Up"
-msgstr ""
+msgstr "Rauf"
 
 #  Programmer's name for it: RsBrowseData
 #  === JvToolEdit.pas =========================================================
@@ -8879,7 +8876,7 @@ msgstr ""
 #: JvResources.pas:1751
 #, fuzzy
 msgid "Do&wn"
-msgstr "Durchsuchen"
+msgstr "Runter"
 
 #. Programmer's name for it: RSPropertyStoreEditorListButtonSortUp
 #: JvResources.pas:1752
@@ -10510,7 +10507,7 @@ msgstr "Stackunterlauf"
 #. Programmer's name for it: RsClBlack
 #: JvResources.pas:2122
 msgid "Black"
-msgstr ""
+msgstr "Schwarz"
 
 #  Programmer's name for it: RsClMaroon
 #  Programmer's name for it: RsClMaroon
@@ -10518,7 +10515,7 @@ msgstr ""
 #. Programmer's name for it: RsClMaroon
 #: JvResources.pas:2123
 msgid "Maroon"
-msgstr ""
+msgstr "Kastanie"
 
 #  Programmer's name for it: RsClOlive
 #  Programmer's name for it: RsClOlive
@@ -10526,7 +10523,7 @@ msgstr ""
 #. Programmer's name for it: RsClOlive
 #: JvResources.pas:2125
 msgid "Olive green"
-msgstr ""
+msgstr "Olivgrün"
 
 #  Programmer's name for it: RsClNavy
 #  Programmer's name for it: RsClNavy
@@ -10534,7 +10531,7 @@ msgstr ""
 #. Programmer's name for it: RsClNavy
 #: JvResources.pas:2126
 msgid "Navy blue"
-msgstr ""
+msgstr "Marineblau"
 
 #  Programmer's name for it: RsClPurple
 #  Programmer's name for it: RsClPurple
@@ -10542,7 +10539,7 @@ msgstr ""
 #. Programmer's name for it: RsClPurple
 #: JvResources.pas:2127
 msgid "Purple"
-msgstr ""
+msgstr "Violett"
 
 #  Programmer's name for it: RsClTeal
 #  Programmer's name for it: RsClTeal
@@ -10550,7 +10547,7 @@ msgstr ""
 #. Programmer's name for it: RsClTeal
 #: JvResources.pas:2128
 msgid "Teal"
-msgstr ""
+msgstr "Blaugrün"
 
 #  Programmer's name for it: RsClGray
 #  Programmer's name for it: RsClGray
@@ -10558,7 +10555,7 @@ msgstr ""
 #. Programmer's name for it: RsClGray
 #: JvResources.pas:2129
 msgid "Gray"
-msgstr ""
+msgstr "Grau"
 
 #  Programmer's name for it: RsClSilver
 #  Programmer's name for it: RsClSilver
@@ -10566,7 +10563,7 @@ msgstr ""
 #. Programmer's name for it: RsClSilver
 #: JvResources.pas:2130
 msgid "Silver"
-msgstr ""
+msgstr "Silber"
 
 #  Programmer's name for it: RsClLime
 #  Programmer's name for it: RsClLime
@@ -10574,7 +10571,7 @@ msgstr ""
 #. Programmer's name for it: RsClLime
 #: JvResources.pas:2132
 msgid "Lime"
-msgstr ""
+msgstr "Hellgrün"
 
 #  Programmer's name for it: RsClFuchsia
 #  Programmer's name for it: RsClFuchsia
@@ -10582,7 +10579,7 @@ msgstr ""
 #. Programmer's name for it: RsClFuchsia
 #: JvResources.pas:2135
 msgid "Fuchsia"
-msgstr ""
+msgstr "Magenta"
 
 #  Programmer's name for it: RsClAqua
 #  Programmer's name for it: RsClAqua
@@ -10590,7 +10587,7 @@ msgstr ""
 #. Programmer's name for it: RsClAqua
 #: JvResources.pas:2136
 msgid "Aqua"
-msgstr ""
+msgstr "Türkis"
 
 #  Programmer's name for it: RsClWhite
 #  Programmer's name for it: RsClWhite
@@ -10598,7 +10595,7 @@ msgstr ""
 #. Programmer's name for it: RsClWhite
 #: JvResources.pas:2137
 msgid "White"
-msgstr ""
+msgstr "Weiß"
 
 #  Programmer's name for it: RsClMoneyGreen
 #  Programmer's name for it: RsClMoneyGreen
@@ -10606,7 +10603,7 @@ msgstr ""
 #. Programmer's name for it: RsClMoneyGreen
 #: JvResources.pas:2138
 msgid "Money green"
-msgstr ""
+msgstr "Geldgrün"
 
 #  Programmer's name for it: RsClSkyBlue
 #  Programmer's name for it: RsClSkyBlue
@@ -10614,7 +10611,7 @@ msgstr ""
 #. Programmer's name for it: RsClSkyBlue
 #: JvResources.pas:2139
 msgid "Sky blue"
-msgstr ""
+msgstr "Himmelblau"
 
 #  Programmer's name for it: RsClCream
 #  Programmer's name for it: RsClCream
@@ -10622,7 +10619,7 @@ msgstr ""
 #. Programmer's name for it: RsClCream
 #: JvResources.pas:2140
 msgid "Cream"
-msgstr ""
+msgstr "Creme"
 
 #  Programmer's name for it: RsClMedGray
 #  Programmer's name for it: RsClMedGray
@@ -10630,7 +10627,7 @@ msgstr ""
 #. Programmer's name for it: RsClMedGray
 #: JvResources.pas:2141
 msgid "Medium gray"
-msgstr ""
+msgstr "Mittelgrau"
 
 #  Programmer's name for it: RsBrowseData
 #  === JvToolEdit.pas =========================================================
@@ -10640,7 +10637,7 @@ msgstr ""
 #: JvResources.pas:2144
 #, fuzzy
 msgid "Brown"
-msgstr "Durchsuchen"
+msgstr "Braun"
 
 #  Programmer's name for it: RsClGreen
 #  Programmer's name for it: RsClGreen
@@ -10649,7 +10646,7 @@ msgstr "Durchsuchen"
 #: JvResources.pas:2145
 #, fuzzy
 msgid "Olive Green"
-msgstr "Grün"
+msgstr "Olivgrün"
 
 #  Programmer's name for it: RsClGreen
 #  Programmer's name for it: RsClGreen
@@ -10658,12 +10655,12 @@ msgstr "Grün"
 #: JvResources.pas:2146
 #, fuzzy
 msgid "Dark Green"
-msgstr "Grün"
+msgstr "Dunkelgrün"
 
 #. Programmer's name for it: RsClDarkTeal
 #: JvResources.pas:2147
 msgid "Dark Teal"
-msgstr ""
+msgstr "Dunkel-Blaugrün"
 
 #  Programmer's name for it: RsClBlue
 #  Programmer's name for it: RsClBlue
@@ -10672,7 +10669,7 @@ msgstr ""
 #: JvResources.pas:2148
 #, fuzzy
 msgid "Dark Blue"
-msgstr "Blau"
+msgstr "Dunkelblau"
 
 #  Programmer's name for it: RsNo
 #  Programmer's name for it: RsNo
@@ -10680,17 +10677,17 @@ msgstr "Blau"
 #: JvResources.pas:2149
 #, fuzzy
 msgid "Indigo"
-msgstr "Nein"
+msgstr "Indigo"
 
 #. Programmer's name for it: RsClGray80
 #: JvResources.pas:2150
 msgid "Gray 80%"
-msgstr ""
+msgstr "Grau 80%"
 
 #. Programmer's name for it: RsClDarkRed
 #: JvResources.pas:2152
 msgid "Dark Red"
-msgstr ""
+msgstr "Dunkelrot"
 
 #  JvSpellerForm..ButtonPanel..BtnChange..Caption
 #  JvSpellerForm..ButtonPanel..BtnChange..Caption
@@ -10700,7 +10697,7 @@ msgstr ""
 #: JvResources.pas:2153
 #, fuzzy
 msgid "Orange"
-msgstr "&Ändern"
+msgstr "Orange"
 
 #  Programmer's name for it: RsClYellow
 #  Programmer's name for it: RsClYellow
@@ -10709,7 +10706,7 @@ msgstr "&Ändern"
 #: JvResources.pas:2154
 #, fuzzy
 msgid "Dark Yellow"
-msgstr "Gelb"
+msgstr "Dunkelgelb"
 
 #  Programmer's name for it: RsClBlue
 #  Programmer's name for it: RsClBlue
@@ -10718,18 +10715,18 @@ msgstr "Gelb"
 #: JvResources.pas:2155
 #, fuzzy
 msgid "Blue Gray"
-msgstr "Blau"
+msgstr "Blaugrau"
 
 #. Programmer's name for it: RsClGray50
 #: JvResources.pas:2156
 msgid "Gray 50%"
-msgstr ""
+msgstr "Grau 50%"
 
 #. Programmer's name for it: RsClLightOrange
 #: JvResources.pas:2158
 #, fuzzy
 msgid "Light Orange"
-msgstr "Helligkeit"
+msgstr "Hell-Orange"
 
 #  Programmer's name for it: RsClGreen
 #  Programmer's name for it: RsClGreen
@@ -10738,23 +10735,23 @@ msgstr "Helligkeit"
 #: JvResources.pas:2159
 #, fuzzy
 msgid "Sea Green"
-msgstr "Grün"
+msgstr "Meeresgrün"
 
 #. Programmer's name for it: RsClLightBlue
 #: JvResources.pas:2160
 #, fuzzy
 msgid "Light Blue"
-msgstr "Helligkeit"
+msgstr "Hellblau"
 
 #. Programmer's name for it: RsClViolet
 #: JvResources.pas:2161
 msgid "Violet"
-msgstr ""
+msgstr "Violett"
 
 #. Programmer's name for it: RsClGray40
 #: JvResources.pas:2162
 msgid "Gray 40%"
-msgstr ""
+msgstr "Grau 40%"
 
 #  FoLog..ActionList1..Print..Hint
 #  FoLog..ActionList1..Print..Hint
@@ -10762,7 +10759,7 @@ msgstr ""
 #: JvResources.pas:2164
 #, fuzzy
 msgid "Pink"
-msgstr "Drucken"
+msgstr "Rosa"
 
 #  JvHLEditorParamsForm..Pages..tsColors..gbTextAttributes..cbBold..Caption
 #  Programmer's name for it: RsHLEdPropDlg_cbBold
@@ -10770,12 +10767,12 @@ msgstr "Drucken"
 #: JvResources.pas:2165
 #, fuzzy
 msgid "Gold"
-msgstr "&Fett"
+msgstr "Gold"
 
 #. Programmer's name for it: RsClBrightGreen
 #: JvResources.pas:2166
 msgid "Bright Green"
-msgstr ""
+msgstr "Hellgrün"
 
 #  Programmer's name for it: RsTrue
 #  Programmer's name for it: sUIBTrue
@@ -10783,17 +10780,17 @@ msgstr ""
 #: JvResources.pas:2167
 #, fuzzy
 msgid "Turquoise"
-msgstr "Wahr"
+msgstr "Dunkel-Türkis"
 
 #. Programmer's name for it: RsClPlum
 #: JvResources.pas:2168
 msgid "Plum"
-msgstr ""
+msgstr "Pflaume"
 
 #. Programmer's name for it: RsClGray25
 #: JvResources.pas:2169
 msgid "Gray 25%"
-msgstr ""
+msgstr "Grau 25%"
 
 #  AlignForm..g_Vert....Items.Strings
 #  Programmer's name for it: RsDockJvDockTreeCloseBtnHint
@@ -10801,12 +10798,12 @@ msgstr ""
 #: JvResources.pas:2171
 #, fuzzy
 msgid "Rose"
-msgstr "Schließen"
+msgstr "Rosa"
 
 #. Programmer's name for it: RsClTan
 #: JvResources.pas:2172
 msgid "Tan"
-msgstr ""
+msgstr "Hautfarben"
 
 #  Programmer's name for it: RsClYellow
 #  Programmer's name for it: RsClYellow
@@ -10815,7 +10812,7 @@ msgstr ""
 #: JvResources.pas:2173
 #, fuzzy
 msgid "Light Yellow"
-msgstr "Gelb"
+msgstr "Hellgelb"
 
 #  Programmer's name for it: RsClGreen
 #  Programmer's name for it: RsClGreen
@@ -10824,12 +10821,12 @@ msgstr "Gelb"
 #: JvResources.pas:2174
 #, fuzzy
 msgid "Light Green"
-msgstr "Grün"
+msgstr "Hellgrün"
 
 #. Programmer's name for it: RsClLightTurquoise
 #: JvResources.pas:2175
 msgid "Light Turquoise"
-msgstr ""
+msgstr "Helltürkis"
 
 #  Programmer's name for it: RsClBlue
 #  Programmer's name for it: RsClBlue
@@ -10838,12 +10835,12 @@ msgstr ""
 #: JvResources.pas:2176
 #, fuzzy
 msgid "Pale Blue"
-msgstr "Blau"
+msgstr "Fahles Blau"
 
 #. Programmer's name for it: RsClLavender
 #: JvResources.pas:2177
 msgid "Lavender"
-msgstr ""
+msgstr "Lavendel"
 
 #  windows system colors
 #  Programmer's name for it: RsClScrollBar
@@ -10855,7 +10852,7 @@ msgstr ""
 #. Programmer's name for it: RsClScrollBar
 #: JvResources.pas:2180
 msgid "Scrollbar"
-msgstr ""
+msgstr "Scrollbalken"
 
 #  Programmer's name for it: RsClBackground
 #  non standard colors introduced in QWindows.pas
@@ -10869,7 +10866,7 @@ msgstr ""
 #. Programmer's name for it: RsClBackground
 #: JvResources.pas:2181
 msgid "Desktop background"
-msgstr ""
+msgstr "Desktop-Hintergrund"
 
 #  Programmer's name for it: RsClActiveCaption
 #  Programmer's name for it: RsClActiveCaption
@@ -10877,7 +10874,7 @@ msgstr ""
 #. Programmer's name for it: RsClActiveCaption
 #: JvResources.pas:2182
 msgid "Active window title bar"
-msgstr ""
+msgstr "Überschrift von aktiven Fenstern"
 
 #  Programmer's name for it: RsClInactiveCaption
 #  Programmer's name for it: RsClInactiveCaption
@@ -10885,7 +10882,7 @@ msgstr ""
 #. Programmer's name for it: RsClInactiveCaption
 #: JvResources.pas:2183
 msgid "Inactive window title bar"
-msgstr ""
+msgstr "Überschrift von inaktiven Fenstern"
 
 #  Programmer's name for it: RsClMenu
 #  Programmer's name for it: RsClMenu
@@ -10893,7 +10890,7 @@ msgstr ""
 #. Programmer's name for it: RsClMenu
 #: JvResources.pas:2184
 msgid "Menu background"
-msgstr ""
+msgstr "Menü-Hintergrund"
 
 #  Programmer's name for it: RsClWindow
 #  Programmer's name for it: RsClBackground
@@ -10904,7 +10901,7 @@ msgstr ""
 #. Programmer's name for it: RsClWindow
 #: JvResources.pas:2185
 msgid "Window background"
-msgstr ""
+msgstr "Fenster-Hintergrund"
 
 #  Programmer's name for it: RsClWindowFrame
 #  Programmer's name for it: RsClWindowFrame
@@ -10912,7 +10909,7 @@ msgstr ""
 #. Programmer's name for it: RsClWindowFrame
 #: JvResources.pas:2186
 msgid "Window frame"
-msgstr ""
+msgstr "Fensterrahmen"
 
 #  Programmer's name for it: RsClMenuText
 #  Programmer's name for it: RsClMenuText
@@ -10920,7 +10917,7 @@ msgstr ""
 #. Programmer's name for it: RsClMenuText
 #: JvResources.pas:2187
 msgid "Menu text"
-msgstr ""
+msgstr "Menütext"
 
 #  Programmer's name for it: RsClWindowText
 #  Programmer's name for it: RsClForeground
@@ -10931,7 +10928,7 @@ msgstr ""
 #. Programmer's name for it: RsClWindowText
 #: JvResources.pas:2188
 msgid "Window text"
-msgstr ""
+msgstr "Fenstertext"
 
 #  Programmer's name for it: RsClCaptionText
 #  Programmer's name for it: RsClCaptionText
@@ -10939,7 +10936,7 @@ msgstr ""
 #. Programmer's name for it: RsClCaptionText
 #: JvResources.pas:2189
 msgid "Active window title bar text"
-msgstr ""
+msgstr "Text von aktiven Fenstern"
 
 #  Programmer's name for it: RsClActiveBorder
 #  Programmer's name for it: RsClActiveBorder
@@ -10947,7 +10944,7 @@ msgstr ""
 #. Programmer's name for it: RsClActiveBorder
 #: JvResources.pas:2190
 msgid "Active window border"
-msgstr ""
+msgstr "Rahmen von aktiven Fenstern"
 
 #  Programmer's name for it: RsClInactiveBorder
 #  Programmer's name for it: RsClInactiveBorder
@@ -10955,7 +10952,7 @@ msgstr ""
 #. Programmer's name for it: RsClInactiveBorder
 #: JvResources.pas:2191
 msgid "Inactive window border"
-msgstr ""
+msgstr "Rahmen von inaktiven Fenster"
 
 #  Programmer's name for it: RsClAppWorkSpace
 #  Programmer's name for it: RsClAppWorkSpace
@@ -10963,7 +10960,7 @@ msgstr ""
 #. Programmer's name for it: RsClAppWorkSpace
 #: JvResources.pas:2192
 msgid "Application workspace"
-msgstr ""
+msgstr "Anwendungs-Arbeitsbereich"
 
 #  Programmer's name for it: RsClHighlight
 #  Programmer's name for it: RsClHighlight
@@ -10974,7 +10971,7 @@ msgstr ""
 #. Programmer's name for it: RsClHighlight
 #: JvResources.pas:2193
 msgid "Selection background"
-msgstr ""
+msgstr "Auswahl-Hintergrund"
 
 #  Programmer's name for it: RsClHighlightText
 #  Programmer's name for it: RsClHighlightedText
@@ -10985,7 +10982,7 @@ msgstr ""
 #. Programmer's name for it: RsClHighlightText
 #: JvResources.pas:2194
 msgid "Selection text"
-msgstr ""
+msgstr "Ausgewählter Text"
 
 #  Programmer's name for it: RsClBtnFace
 #  Programmer's name for it: RsClButton
@@ -10996,7 +10993,7 @@ msgstr ""
 #. Programmer's name for it: RsClBtnFace
 #: JvResources.pas:2195
 msgid "Button face"
-msgstr ""
+msgstr "Schaltflächen-Hintergrund"
 
 #  Programmer's name for it: RsClBtnShadow
 #  Programmer's name for it: RsClBtnShadow
@@ -11004,7 +11001,7 @@ msgstr ""
 #. Programmer's name for it: RsClBtnShadow
 #: JvResources.pas:2196
 msgid "Button shadow"
-msgstr ""
+msgstr "Schatten von Schaltflächen"
 
 #  Programmer's name for it: RsClGrayText
 #  Programmer's name for it: RsClGrayText
@@ -11012,7 +11009,7 @@ msgstr ""
 #. Programmer's name for it: RsClGrayText
 #: JvResources.pas:2197
 msgid "Dimmed text"
-msgstr ""
+msgstr "Abgedunkelter Text"
 
 #  Programmer's name for it: RsClBtnText
 #  Programmer's name for it: RsClButtonText
@@ -11023,7 +11020,7 @@ msgstr ""
 #. Programmer's name for it: RsClBtnText
 #: JvResources.pas:2198
 msgid "Button text"
-msgstr ""
+msgstr "Schaltflächen-Text"
 
 #  Programmer's name for it: RsClInactiveCaptionText
 #  Programmer's name for it: RsClInactiveCaptionText
@@ -11031,7 +11028,7 @@ msgstr ""
 #. Programmer's name for it: RsClInactiveCaptionText
 #: JvResources.pas:2199
 msgid "Inactive window title bar text"
-msgstr ""
+msgstr "Text von inaktiven Fenstern"
 
 #  Programmer's name for it: RsClBtnHighlight
 #  Programmer's name for it: RsClBtnHighlight
@@ -11039,7 +11036,7 @@ msgstr ""
 #. Programmer's name for it: RsClBtnHighlight
 #: JvResources.pas:2200
 msgid "Button highlight"
-msgstr ""
+msgstr "Helle Kante von Schaltflächen"
 
 #  Programmer's name for it: RsCl3DDkShadow
 #  Programmer's name for it: RsCl3DDkShadow
@@ -11047,7 +11044,7 @@ msgstr ""
 #. Programmer's name for it: RsCl3DDkShadow
 #: JvResources.pas:2201
 msgid "Dark shadow 3D elements"
-msgstr ""
+msgstr "Schatten von 3D-Elementen"
 
 #  Programmer's name for it: RsCl3DLight
 #  Programmer's name for it: RsCl3DLight
@@ -11055,7 +11052,7 @@ msgstr ""
 #. Programmer's name for it: RsCl3DLight
 #: JvResources.pas:2202
 msgid "Highlight 3D elements"
-msgstr ""
+msgstr "Helle Kante von 3D-Elementen"
 
 #  Programmer's name for it: RsClInfoText
 #  Programmer's name for it: RsClInfoText
@@ -11063,7 +11060,7 @@ msgstr ""
 #. Programmer's name for it: RsClInfoText
 #: JvResources.pas:2203
 msgid "Tooltip text"
-msgstr ""
+msgstr "Tooltip-Text"
 
 #  Programmer's name for it: RsClInfoBk
 #  Programmer's name for it: RsClInfoBk
@@ -11074,29 +11071,29 @@ msgstr ""
 #. Programmer's name for it: RsClInfoBk
 #: JvResources.pas:2204
 msgid "Tooltip background"
-msgstr ""
+msgstr "Tooltip-Hintergrund"
 
 #. Programmer's name for it: RsGradientActiveCaption
 #: JvResources.pas:2205
 msgid "Gradient Active Caption"
-msgstr ""
+msgstr "Gradient für Überschriften von aktiven Fenstern"
 
 #. Programmer's name for it: RsGradientInactiveCaption
 #: JvResources.pas:2206
 msgid "Gradient Inactive Caption"
-msgstr ""
+msgstr "Gradient für Überschriften von inaktiven Fenstern"
 
 #  Programmer's name for it: RsHigh
 #. Programmer's name for it: RsHotLight
 #: JvResources.pas:2207
 #, fuzzy
 msgid "Hot Light"
-msgstr "Hoch"
+msgstr "Hervorhebung"
 
 #. Programmer's name for it: RsMenuBar
 #: JvResources.pas:2208
 msgid "Menu Bar"
-msgstr ""
+msgstr "Menübalken"
 
 #  JvHLEditorParamsForm..Pages..tsEditor..gbEditor..cbSytaxHighlighting..Caption
 #  Programmer's name for it: RsHLEdPropDlg_cbSytaxHighlighting
@@ -11144,7 +11141,7 @@ msgstr ""
 #: JvResources.pas:2227
 #, fuzzy
 msgid "Base > 36 not supported"
-msgstr "Version wird nicht unterstützt"
+msgstr ""
 
 #. Programmer's name for it: RsEBaseTooSmall
 #: JvResources.pas:2228
@@ -11252,7 +11249,7 @@ msgstr "Zur &letzten Seite"
 #. Programmer's name for it: RsFinishButtonCaption
 #: JvResources.pas:2263
 msgid "&Finish"
-msgstr "&Fertig"
+msgstr "&Fertigstellen"
 
 #  Programmer's name for it: RsWelcome
 #  Programmer's name for it: RsWelcome
@@ -11266,7 +11263,7 @@ msgstr "Willkommen"
 #. Programmer's name for it: RsSubtitle
 #: JvResources.pas:2266
 msgid "Subtitle"
-msgstr "Subtitle"
+msgstr "Untertitel"
 
 #  Programmer's name for it: RsEInvalidParentControl
 #  Programmer's name for it: RsEInvalidParentControl
@@ -11357,7 +11354,7 @@ msgstr ""
 #. Programmer's name for it: RsUntitled
 #: JvResources.pas:2289
 msgid "untitled"
-msgstr "Unbenannt"
+msgstr ""
 
 #  Programmer's name for it: RsECsvErrFormat
 #  === JvID3v2Base.pas ========================================================
@@ -11399,7 +11396,7 @@ msgstr "YearGrid"
 #. Programmer's name for it: RsEnterYear
 #: JvResources.pas:2302
 msgid "Enter year (1999-2050):"
-msgstr "Jahr eingeben (1999-2050)"
+msgstr "Jahr eingeben (1999-2050):"
 
 #  Programmer's name for it: RsInvalidYear
 #. Programmer's name for it: RsInvalidYear
