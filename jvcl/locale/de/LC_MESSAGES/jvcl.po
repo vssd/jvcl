@@ -1202,13 +1202,14 @@ msgid ""
 "2 if you want it in the second position\n"
 "...."
 msgstr ""
+
 "Hier die Position des Start-Tags definieren\n"
 "\n"
 "1 wenn es egal ist\n"
 "0 wenn er nicht im String sein kann\n"
 "1 wenn er an der ersten Stelle stehen soll\n"
 "2 wenn er an der zweiten Stelle stehen soll\n"
-"...."
+"..."
 
 #  FormParsers..AddBtn..Hint
 #  FormParsers..AddBtn..Hint
@@ -2234,8 +2235,8 @@ msgid ""
 "The Default Root Value \"%0:s\" has been replaced with \"%1:s\".\n"
 "Please change the value in the FileVersionInfo Project Properties."
 msgstr ""
-"Der Standard Wurzel Wert \"%0:s\" wurde durch \"%1:s\" ersetzt.\n"
-"Bitte Wert in Datei Versionsinfo Projekteinstellungen ändern."
+"Der Standard-Wurzel-Wert \"%0:s\" wurde durch \"%1:s\" ersetzt.\n"
+"Bitte Wert in Datei>Versionsinfo in den Projekteinstellungen ändern."
 
 #  === JvAppRegistryStorage.pas =================================================
 #  Programmer's name for it: RsEUnableToCreateKey
@@ -2495,7 +2496,7 @@ msgstr "Das neue und das bestätigte Passwort stimmen nicht überein"
 #. Programmer's name for it: RsOldPasswordsMismatch
 #: JvResources.pas:215
 msgid "The current and old passwords do not match"
-msgstr "Das neue und das bestätigte Passwort stimmen nicht überein"
+msgstr "Das neue und das alte Passwort stimmen nicht überein"
 
 #  JvSpellerForm..ButtonPanel..BtnChange..Caption
 #  JvSpellerForm..ButtonPanel..BtnChange..Caption
@@ -3583,7 +3584,7 @@ msgstr "Keine Datensätze"
 #. Programmer's name for it: RsENoFieldNamesMatch
 #: JvResources.pas:480
 msgid "No field names match in these datasets. CopyFromDataset failed."
-msgstr "Kein Feld Name passt zu diesen datasets. CopyFromDataset ist fehlgeschlagen."
+msgstr "Kein Feld Name passt zu diesen Datasets. CopyFromDataset ist fehlgeschlagen."
 
 #  Programmer's name for it: RsETimeTConvError
 #  Programmer's name for it: RsETimeTConvError
@@ -10742,7 +10743,7 @@ msgstr "Grau 25%"
 #. Programmer's name for it: RsClRose
 #: JvResources.pas:2171
 msgid "Rose"
-msgstr "Rosa"
+msgstr "Rosé"
 
 #. Programmer's name for it: RsClTan
 #: JvResources.pas:2172
