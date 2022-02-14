@@ -427,7 +427,7 @@ uses
   {$IFNDEF COMPILER12_UP}
   JvJCLUtils,
   {$ENDIF ~COMPILER12_UP}
-  JvDSADialogs, JvResources;
+  JvDSADialogs, JvResources, JvJVCLUtils;
 
 //=== { TJvDatasetThreadDialog } =============================================
 
@@ -526,13 +526,15 @@ begin
   else
     Caption := ' ';
   FormStyle := DialogOptions.FormStyle;
+  {$IFDEF HAS_PROPERTY_OLDCREATEORDER}
   OldCreateOrder := False;
+  {$ENDIF HAS_PROPERTY_OLDCREATEORDER}
   {$IFDEF COMPILER7_UP}
   Position := poOwnerFormCenter;
   {$ELSE}
   Position := poScreenCenter;
   {$ENDIF COMPILER7_UP}
-  PixelsPerInch := 96;
+  PixelsPerInch := cDefaultPixelsPerInch;
 end;
 
 procedure TJvDatasetThreadDialogForm.CreateTextPanel(AOwner: TComponent; AParent: TWinControl; var Panel: TWinControl;
