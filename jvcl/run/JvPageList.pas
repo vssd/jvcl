@@ -694,17 +694,25 @@ var
   I: Integer;
   NextPage: TJvCustomPage;
 begin
-  NextPage := FindNextPage(APage, True, not (csDesigning in ComponentState));
-  if NextPage = APage then
-    NextPage := nil;
-  { If the last page is removed, go back to the prior page }
-  if (NextPage <> nil) and (NextPage.PageIndex = 0) and (APage.PageIndex > 0) then
-    NextPage := Pages[APage.PageIndex - 1];
+  if APage <> FActivePage then
+    // VSSD: Don't change active page if not required
+    NextPage := FActivePage
+  else
+  begin
+    NextPage := FindNextPage(APage, True, not (csDesigning in ComponentState));
+    if NextPage = APage then
+      NextPage := nil;
+    { If the last page is removed, go back to the prior page }
+    if (NextPage <> nil) and (NextPage.PageIndex = 0) and (APage.PageIndex > 0) then
+      NextPage := Pages[APage.PageIndex - 1];
+  end;
 
   APage.Visible := False;
   APage.FPageList := nil;
   FPages.Remove(APage);
-  SetActivePage(NextPage);
+  // VSSD: Don't change active page if not required
+  if NextPage <> FActivePage then
+    SetActivePage(NextPage);
   // (ahuser) In some cases SetActivePage does not change FActivePage
   //          so we force FActivePage not to be "APage"
   if (FActivePage = APage) or (FActivePage = nil) then

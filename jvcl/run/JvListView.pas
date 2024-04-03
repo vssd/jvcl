@@ -20,13 +20,6 @@ Contributor(s): Michael Beck [mbeck att bigfoot dott com].
 
 You may retrieve the latest version of this file at the Project JEDI's JVCL home page,
 located at http://jvcl.delphi-jedi.org
-
-Known Issues:
-  Mantis 3932: In the OnCustomDrawItem, if you change the canvas font directly,
-               then your changes will be ignored and the items be drawn bold if
-               the item brush is not used for the given list view style
-               (report for instance). As a workaround, always change the item's
-               properties, never the canvas' directly.
 -----------------------------------------------------------------------------}
 // $Id$
 
@@ -145,6 +138,7 @@ type
     property TileColumns: TIntegerList read FTileColumns write SetTileColumns;
   published
     property Font: TFont read FFont write SetFont;
+    // Brush is technically limited to Brush.Color (see TCustomListView.CNNotify:NM_CUSTOMDRAW)
     property Brush: TBrush read FBrush write SetBrush;
     property GroupId: Integer read FGroupId write SetGroupId default -1;
     // Published now for the usage of AppStorage.Read/WritePersistent
@@ -378,6 +372,8 @@ type
     FOnEndColumnResize: TJvListViewColumnResizeEvent;
     FOnColumnResizing: TJvListViewColumnResizeEvent;
     FLastSortedColumnIndex: Integer;
+    FDefaultDrawTextColor: TColor;
+    FDefaultDrawTextBkColor: TColor;
 
     procedure DoPictureChange(Sender: TObject);
     procedure SetPicture(const Value: TPicture);
@@ -498,7 +494,7 @@ type
     property TileViewProperties: TJvTileViewProperties read FTileViewProperties write SetTileViewProperties;
     property InsertMarkColor: TColor read FInsertMarkColor write SetInsertMarkColor default clBlack;
 
-    property ViewStylesItemBrush : TJvViewStyles read FViewStylesItemBrush write SetViewStylesItemBrush default ALL_VIEW_STYLES;
+    property ViewStylesItemBrush: TJvViewStyles read FViewStylesItemBrush write SetViewStylesItemBrush default ALL_VIEW_STYLES;
     property ViewStyle: TJvViewStyle read FViewStyle write SetJvViewStyle default vsIcon;
 
     property OnAutoSort: TJvListViewColumnSortEvent read FOnAutoSort write FOnAutoSort;
@@ -547,6 +543,9 @@ uses
   {$IFDEF HAS_UNIT_TYPES}
   Types,
   {$ENDIF HAS_UNIT_TYPES}
+  {$IFDEF HAS_UNIT_SYSTEM_UITYPES}
+  System.UITypes, // expand inlines
+  {$ENDIF HAS_UNIT_SYSTEM_UITYPES}
   {$IFDEF RTL250_UP}
   AnsiStrings,
   {$ENDIF RTL250_UP}
@@ -713,7 +712,11 @@ begin
 
   FTileColumns.OnChange := TileColumnsChange;
   if AOwner.Owner is TJvListView then
-    FFont.Assign((AOwner.Owner as TJvListView).Canvas.Font);
+    FFont.Assign((AOwner.Owner as TJvListView).Font);
+
+  // Use the default font and brush color if not set otherwise
+  FFont.Color := clDefault;
+  FBrush.Color := clDefault;
 end;
 
 procedure TJvListItem.DefineProperties(Filer: TFiler);
@@ -1091,169 +1094,191 @@ begin
     FOnVerticalScroll(Self);
 end;
 
-procedure TJvListView.ColClick(Column: TListColumn);
 type
   TParamSort = record
     ColumnIndex: Integer;
     Sender: TObject;
   end;
+
+function CustomCompare1(Item1, Item2, ParamSort: LPARAM): Integer; stdcall;
 var
   Parm: TParamSort;
+  i1, i2: TListItem;
+  S1, S2: string;
+  I: Integer;
+  SortKind: TJvSortMethod;
 
-  function CustomCompare1(Item1, Item2, ParamSort: LPARAM): Integer stdcall;
+  function IsBigger(First, Second: string; SortType: TJvSortMethod): Boolean;
   var
-    Parm: TParamSort;
-    i1, i2: TListItem;
-    S1, S2: string;
-    I: Integer;
-    SortKind: TJvSortMethod;
+    I, J: Double;
+    d, e: TDateTime;
+    a, b: Currency;
+    l, m: Int64;
+    st, st2: string;
+    int1, int2: Integer;
 
-    function IsBigger(First, Second: string; SortType: TJvSortMethod): Boolean;
+    function FirstNonAlpha(Value: string): Integer;
     var
-      I, J: Double;
-      d, e: TDateTime;
-      a, b: Currency;
-      l, m: Int64;
-      st, st2: string;
-      int1, int2: Integer;
+      Len: Integer;
+      I, J: Integer;
+      Comma: Boolean;
+    begin
+      Len := Length(Value);
+      I := 1;
+      J := 0;
+      Comma := False;
 
-      function FirstNonAlpha(Value: string): Integer;
-      var
-        Len: Integer;
-        I, J: Integer;
-        Comma: Boolean;
+      while I <= Len do
       begin
-        Len := Length(Value);
-        I := 1;
-        J := 0;
-        Comma := False;
-
-        while I <= Len do
-        begin
-          case Value[I] of
-            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9':
-              J := I;
-            ',', '.':
-              if not Comma then
-                Comma := True
-              else
-              begin
-                J := I - 1;
-                I := Len;
-              end;
-          else
+        case Value[I] of
+          '0', '1', '2', '3', '4', '5', '6', '7', '8', '9':
+            J := I;
+          ',', '.':
+            if not Comma then
+              Comma := True
+            else
             begin
               J := I - 1;
               I := Len;
             end;
+        else
+          begin
+            J := I - 1;
+            I := Len;
           end;
-          Inc(I);
         end;
-
-        Result := J;
+        Inc(I);
       end;
 
-    begin
-      Result := False;
-      if Trim(First) = '' then
-        Result := False
-      else
-        if Trim(Second) = '' then
-          Result := True
-        else
-        begin
-          case SortType of
-            smAlphabetic:
-              Result := First > Second;
-            smNonCaseSensitive:
-              Result := UpperCase(First) > UpperCase(Second);
-            smNumeric:
-              begin
-                try
-                  VarR8FromStr({$IFDEF RTL240_UP}PChar{$ENDIF RTL240_UP}(First), LOCALE_USER_DEFAULT, 0, I);
-                  VarR8FromStr({$IFDEF RTL240_UP}PChar{$ENDIF RTL240_UP}(Second), LOCALE_USER_DEFAULT, 0, J);
-                  Result := I > J;
-                except
-                  try
-                    l := StrToInt64(First);
-                  except
-                    l := 0;
-                  end;
-                  try
-                    m := StrToInt64(Second);
-                  except
-                    m := 0;
-                  end;
-                  Result := l > m;
-                end;
-              end;
-            smDate:
-              begin
-                d := StrToDate(First);
-                e := StrToDate(Second);
-                Result := d > e;
-              end;
-            smTime:
-              begin
-                d := StrToTime(First);
-                e := StrToTime(Second);
-                Result := d > e;
-              end;
-            smDateTime:
-              begin
-                d := StrToDateTime(First);
-                e := StrToDateTime(Second);
-                Result := d > e;
-              end;
-            smCurrency:
-              begin
-                VarCyFromStr({$IFDEF RTL240_UP}PChar{$ENDIF RTL240_UP}(First), LOCALE_USER_DEFAULT, 0, a);
-                VarCyFromStr({$IFDEF RTL240_UP}PChar{$ENDIF RTL240_UP}(Second), LOCALE_USER_DEFAULT, 0, b);
-                Result := a > b;
-              end;
-            smAutomatic:
-              begin
-                int1 := FirstNonAlpha(First);
-                int2 := FirstNonAlpha(Second);
-                if (int1 <> 0) and (int2 <> 0) then
-                begin
-                  st := Copy(First, 1, int1);
-                  st2 := Copy(Second, 1, int2);
-                  try
-                    Result := StrToFloat(st) > StrToFloat(st2);
-                  except
-                    Result := First > Second;
-                  end;
-                end
-                else
-                  Result := First > Second;
-              end;
-          end;
-        end;
+      Result := J;
     end;
 
   begin
-    Parm := TParamSort(Pointer(ParamSort)^);
-    i1 := TListItem(Item1);
-    i2 := TListItem(Item2);
-    I := Parm.ColumnIndex;
-
-    // (Salvatore)
-    if Parm.ColumnIndex < TJvListView(Parm.Sender).ExtendedColumns.Count  then
-      SortKind := TJvListView(Parm.Sender).ExtendedColumns[Parm.ColumnIndex].SortMethod
+    Result := False;
+    if Trim(First) = '' then
+      Result := False
     else
-      SortKind := TJvListView(Parm.Sender).SortMethod;
+      if Trim(Second) = '' then
+        Result := True
+      else
+      begin
+        case SortType of
+          smAlphabetic:
+            Result := First > Second;
+          smNonCaseSensitive:
+            Result := UpperCase(First) > UpperCase(Second);
+          smNumeric:
+            begin
+              try
+                VarR8FromStr({$IFDEF RTL240_UP}PChar{$ENDIF RTL240_UP}(First), LOCALE_USER_DEFAULT, 0, I);
+                VarR8FromStr({$IFDEF RTL240_UP}PChar{$ENDIF RTL240_UP}(Second), LOCALE_USER_DEFAULT, 0, J);
+                Result := I > J;
+              except
+                try
+                  l := StrToInt64(First);
+                except
+                  l := 0;
+                end;
+                try
+                  m := StrToInt64(Second);
+                except
+                  m := 0;
+                end;
+                Result := l > m;
+              end;
+            end;
+          smDate:
+            begin
+              d := StrToDate(First);
+              e := StrToDate(Second);
+              Result := d > e;
+            end;
+          smTime:
+            begin
+              d := StrToTime(First);
+              e := StrToTime(Second);
+              Result := d > e;
+            end;
+          smDateTime:
+            begin
+              d := StrToDateTime(First);
+              e := StrToDateTime(Second);
+              Result := d > e;
+            end;
+          smCurrency:
+            begin
+              VarCyFromStr({$IFDEF RTL240_UP}PChar{$ENDIF RTL240_UP}(First), LOCALE_USER_DEFAULT, 0, a);
+              VarCyFromStr({$IFDEF RTL240_UP}PChar{$ENDIF RTL240_UP}(Second), LOCALE_USER_DEFAULT, 0, b);
+              Result := a > b;
+            end;
+          smAutomatic:
+            begin
+              int1 := FirstNonAlpha(First);
+              int2 := FirstNonAlpha(Second);
+              if (int1 <> 0) and (int2 <> 0) then
+              begin
+                st := Copy(First, 1, int1);
+                st2 := Copy(Second, 1, int2);
+                try
+                  Result := StrToFloat(st) > StrToFloat(st2);
+                except
+                  Result := First > Second;
+                end;
+              end
+              else
+                Result := First > Second;
+            end;
+        end;
+      end;
+  end;
 
-    if Assigned(TJvListView(Parm.Sender).OnAutoSort) then
-      TJvListView(Parm.Sender).OnAutoSort(Parm.Sender, Parm.ColumnIndex, SortKind);
+begin
+  Parm := TParamSort(Pointer(ParamSort)^);
+  i1 := TListItem(Item1);
+  i2 := TListItem(Item2);
+  I := Parm.ColumnIndex;
 
-    case I of
-      {sort by caption}
-      0:
+  // (Salvatore)
+  if Parm.ColumnIndex < TJvListView(Parm.Sender).ExtendedColumns.Count  then
+    SortKind := TJvListView(Parm.Sender).ExtendedColumns[Parm.ColumnIndex].SortMethod
+  else
+    SortKind := TJvListView(Parm.Sender).SortMethod;
+
+  if Assigned(TJvListView(Parm.Sender).OnAutoSort) then
+    TJvListView(Parm.Sender).OnAutoSort(Parm.Sender, Parm.ColumnIndex, SortKind);
+
+  case I of
+    {sort by caption}
+    0:
+      begin
+        S1 := i1.Caption;
+        S2 := i2.Caption;
+
+        if IsBigger(S1, S2, SortKind) then
+          Result := 1
+        else
+          if IsBigger(S2, S1, SortKind) then
+            Result := -1
+          else
+            Result := 0;
+      end;
+  else
+    {sort by Column}
+    begin
+      if I > i1.SubItems.Count then
+      begin
+        if I > i2.SubItems.Count then
+          Result := 0
+        else
+          Result := -1;
+      end
+      else
+        if I > i2.SubItems.Count then
+          Result := 1
+        else
         begin
-          S1 := i1.Caption;
-          S2 := i2.Caption;
-
+          S1 := i1.SubItems[I - 1];
+          S2 := i2.SubItems[I - 1];
           if IsBigger(S1, S2, SortKind) then
             Result := 1
           else
@@ -1262,40 +1287,18 @@ var
             else
               Result := 0;
         end;
-    else
-      {sort by Column}
-      begin
-        if I > i1.SubItems.Count then
-        begin
-          if I > i2.SubItems.Count then
-            Result := 0
-          else
-            Result := -1;
-        end
-        else
-          if I > i2.SubItems.Count then
-            Result := 1
-          else
-          begin
-            S1 := i1.SubItems[I - 1];
-            S2 := i2.SubItems[I - 1];
-            if IsBigger(S1, S2, SortKind) then
-              Result := 1
-            else
-              if IsBigger(S2, S1, SortKind) then
-                Result := -1
-              else
-                Result := 0;
-          end;
-      end;
     end;
   end;
+end;
 
-  function CustomCompare2(Item1, Item2, ParamSort: LPARAM): Integer; stdcall;
-  begin
-    Result := -CustomCompare1(Item1, Item2, ParamSort);
-  end;
+function CustomCompare2(Item1, Item2, ParamSort: LPARAM): Integer; stdcall;
+begin
+  Result := -CustomCompare1(Item1, Item2, ParamSort);
+end;
 
+procedure TJvListView.ColClick(Column: TListColumn);
+var
+  Parm: TParamSort;
 begin
   inherited ColClick(Column);
   if FSortOnClick then
@@ -1306,12 +1309,12 @@ begin
     if FLast = Column.Index then
     begin
       FLast := -1;
-      CustomSort(TLVCompare(@CustomCompare2), LPARAM(@Parm));
+      CustomSort(CustomCompare2, LPARAM(@Parm));
     end
     else
     begin
       FLast := Column.Index;
-      CustomSort(TLVCompare(@CustomCompare1), LPARAM(@Parm));
+      CustomSort(CustomCompare1, LPARAM(@Parm));
     end;
   end;
 end;
@@ -2192,7 +2195,6 @@ begin
     ((Stage in [cdPrePaint, cdPostPaint]) and ((Target = dtItem) or (Target = dtSubItem)));
 end;
 
-
 function TJvListView.CustomDraw(const ARect: TRect; Stage: TCustomDrawStage): Boolean;
 var
   BmpXPos, BmpYPos: Integer; // X and Y position for bitmap
@@ -2276,13 +2278,21 @@ begin
   if (Stage = cdPrePaint) and Assigned(Item) then
   begin
     TextColor := GetTextColor(Canvas.Handle);
+    // The VCL create a new TBrush with the default WHITE-Brush instead of the correct clrTextBk color
+    // We fix this here.
+    Canvas.Brush.Color := FDefaultDrawTextBkColor;
+
     Canvas.Font := TJvListItem(Item).Font;
+    if TJvListItem(Item).Font.Color = clDefault then
+      Canvas.Font.Color := FDefaultDrawTextColor;
     if ViewStyle in ViewStylesItemBrush then
     begin
-      if JclCheckWinVersion(6, 0) then
-        SetBkMode(Canvas.Handle, TRANSPARENT);
       Canvas.Brush := TJvListItem(Item).Brush;
+      if Canvas.Brush.Color = clDefault then
+        Canvas.Brush.Color := FDefaultDrawTextBkColor;
     end;
+    if JclCheckWinVersion(6, 0) then
+      SetBkMode(Canvas.Handle, TRANSPARENT);
     Canvas.Handle;
   end;
 
@@ -2293,10 +2303,13 @@ begin
     SetTextColor(Canvas.Handle, TextColor);
 end;
 
-
 procedure TJvListView.CNNotify(var Message: TWMNotify);
 var
   HitTestInfo: TLVHitTestInfo;
+  SubItemModified: Boolean;
+  DefaultFont, NewFont: HFONT;
+  DefaultBrush: HBRUSH;
+  DefaultPen: HPEN;
 begin
   with Message do
   begin
@@ -2304,6 +2317,7 @@ begin
       NM_CUSTOMDRAW:
         with PNMCustomDraw(NMHdr)^ do
         begin
+          SubItemModified := False;
           if (dwDrawStage and CDDS_SUBITEM <> 0) and
              (PNMLVCustomDraw(NMHdr)^.iSubItem = 0) then
           begin
@@ -2316,10 +2330,67 @@ begin
             // trick it by changing the value to a recognizable value used
             // in our CustomDrawSubItem handler.
             PNMLVCustomDraw(NMHdr)^.iSubItem := -1;
-            inherited;
-            PNMLVCustomDraw(NMHdr)^.iSubItem := 0;
-            Exit;
+            SubItemModified := True;
           end;
+
+          // In "inherited" the VCL reacts to Canvas.Font.OnChange and Canvas.Brush.OnChange
+          // so that it can extract the Font.Color, Brush.Color and the font object. With
+          // those it set the NMHdr.clrText/clrTextBk fields and creates and selects the font
+          // into the device context after "Canvas.Handle := 0", that resets the font, brush
+          // and pen to the stock objects (System-Font, WHITE-Brush, BLACK-Pen), was executed.
+          // If no changes are done to either the Canvas.Font or Canvas.Brush the OnChange
+          // events are not called an so the stock objects are now in the device context. The
+          // result is that the ListView paints the items with the "System" font instead of
+          // the ListView.Font. Assigning the same font or brush doesn't trigger the OnChange
+          // events either causing the same bug.
+          //
+          // To prevent this we save the currently selected GDI objects that TCanvas.DeselectHandles
+          // resets to the stock objects. And after calling inherited we check if it is now the
+          // stock font and revert it back to the original font. The brush and pen are always
+          // reverted because inherited" neither selects its own brush or pen into the device
+          // context. It only reads Brush.Color. So we can always restore the original brush
+          // and pen.
+          DefaultFont := 0; // silence the compiler
+          DefaultBrush := 0;
+          DefaultPen := 0;
+          if dwDrawStage and CDDS_PREPAINT <> 0 then
+          begin
+            DefaultFont := GetCurrentObject(hdc, OBJ_FONT);
+            DefaultBrush := GetCurrentObject(hdc, OBJ_BRUSH);
+            DefaultPen := GetCurrentObject(hdc, OBJ_PEN);
+          end;
+
+          FDefaultDrawTextColor := TColor(PNMLVCustomDraw(NMHdr)^.clrText and $00FFFFFF);
+          FDefaultDrawTextBkColor := TColor(PNMLVCustomDraw(NMHdr)^.clrTextBk and $00FFFFFF);
+          try
+            inherited;
+          finally
+            if SubItemModified then // Revert the "iSubItem := -1" from above (Mantis 3908)
+              PNMLVCustomDraw(NMHdr)^.iSubItem := 0;
+
+            // If the "clDefault" from Item.Font.Color or Item.Brush.Color got through, we
+            // need to fix this and use the original colors. Can happen if the developer
+            // uses the Item.Font/Item.Brush directly instead of the Canvas.Font/Canvas.Brush.
+            if PNMLVCustomDraw(NMHdr)^.clrText = COLORREF(clDefault) then
+              PNMLVCustomDraw(NMHdr)^.clrText := FDefaultDrawTextColor;
+            if PNMLVCustomDraw(NMHdr)^.clrTextBk = COLORREF(clDefault) then
+              PNMLVCustomDraw(NMHdr)^.clrTextBk := FDefaultDrawTextBkColor;
+
+            if dwDrawStage and CDDS_PREPAINT <> 0 then
+            begin
+              // If we still have Canvas.Handle then reverting the GDI objects is useless
+              // (Handle should always be 0 here, but who knows what future VCL versions will do)
+              if not Canvas.HandleAllocated then
+              begin
+                NewFont := GetCurrentObject(hdc, OBJ_FONT);
+                if (NewFont <> DefaultFont) and (NewFont = GetStockObject(SYSTEM_FONT)) then
+                  SelectObject(hdc, DefaultFont);
+                SelectObject(hdc, DefaultBrush);
+                SelectObject(hdc, DefaultPen);
+              end;
+            end;
+          end;
+          Exit;
         end;
 
       LVN_ENDLABELEDITA, LVN_ENDLABELEDITW:
@@ -2376,9 +2447,19 @@ begin
 
   if {(Stage = cdPrePaint) and} Assigned(Item) then
   begin
+    // The VCL create a new TBrush with the default WHITE-Brush instead of the correct clrTextBk color
+    // We fix this here.
+    Canvas.Brush.Color := FDefaultDrawTextBkColor;
+
     Canvas.Font := TJvListItem(Item).Font;
+    if Canvas.Font.Color = clDefault then
+      Canvas.Font.Color := FDefaultDrawTextColor;
     if ViewStyle in ViewStylesItemBrush then
+    begin
       Canvas.Brush := TJvListItem(Item).Brush;
+      if Canvas.Brush.Color = clDefault then
+        Canvas.Brush.Color := FDefaultDrawTextBkColor;
+    end;
   end;
 
   Result := inherited CustomDrawSubItem(Item, SubItem, State, Stage);

@@ -1171,7 +1171,7 @@ uses
 type
   TCustomMaskEditAccessPrivate = class(TCustomEdit)
   protected
-    {$IFDEF RTL350_UP}
+    {$IFDEF RTL370_UP}
       {$MESSAGE WARN 'Check if Vcl.Mask.TCustomMaskEdit still has the exact same fields and adjust the IFDEF'}
     {$ENDIF}
     // Do not remove these fields, although they are not used.
@@ -1781,7 +1781,7 @@ begin
   FPopupAlign := epaRight;
   FBtnControl := TJvBtnWinControl.Create(Self);
   with FBtnControl do
-    ControlStyle := ControlStyle + [csReplicatable];
+    ControlStyle := ControlStyle + [csReplicatable{$IFDEF RTL150_UP}, csParentBackground{$ENDIF}];
   FBtnControl.Width := DefEditBtnWidth;
   FBtnControl.Height := 17;
   FBtnControl.Visible := True;
