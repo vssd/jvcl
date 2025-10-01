@@ -1171,7 +1171,7 @@ uses
 type
   TCustomMaskEditAccessPrivate = class(TCustomEdit)
   protected
-    {$IFDEF RTL370_UP}
+    {$IFDEF RTL380_UP}
       {$MESSAGE WARN 'Check if Vcl.Mask.TCustomMaskEdit still has the exact same fields and adjust the IFDEF'}
     {$ENDIF}
     // Do not remove these fields, although they are not used.
@@ -2168,7 +2168,7 @@ end;
 
 procedure TJvCustomComboEdit.WMClear(var Msg: TMessage);
 begin
-  Text := '';
+  SelText := '';
 end;
 
 procedure TJvCustomComboEdit.WMCut(var Msg: TMessage);
