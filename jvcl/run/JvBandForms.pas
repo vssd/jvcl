@@ -464,6 +464,7 @@ end;
 procedure InstallHook;
 var
   Installations: TJclBorRADToolInstallations;
+  Installation: TJclBorRADToolInstallation;
   DelphiVersion: Integer;
   RunningInIDE: Boolean;
 begin
@@ -476,7 +477,12 @@ begin
     else
       DelphiVersion := Trunc(CompilerVersion - 8);
 
-    RunningInIDE := SameText(ParamStr(0), Installations.DelphiInstallationFromVersion[DelphiVersion].IdeExeFileName);
+    Installation := Installations.DelphiInstallationFromVersion[DelphiVersion];
+    RunningInIDE := SameText(ParamStr(0), Installation.IdeExeFileName[False]);
+
+    // the x64 IDE appeared with Rad Studio 12 update 3
+    if not RunningInIDE and ((Installation.IDEVersionNumber >= 37) or ((Installation.IDEVersionNumber = 23) and (Installation.IDEUpdateNumber = 3))) then
+      RunningInIDE := SameText(ParamStr(0), Installation.IdeExeFileName[True]);
   finally
     Installations.Free;
   end;
